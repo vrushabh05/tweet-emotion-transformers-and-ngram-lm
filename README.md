@@ -33,11 +33,11 @@ flowchart LR
 
 What the results show:
 
-- **Fine-tuning beats zero-shot by about 25 points of accuracy** for both distilled models.
+- **Fine-tuning beats zero-shot by 22 to 29 points of accuracy** (0.586 to 0.805 for DistilRoBERTa, 0.524 to 0.814 for DistilBERT), though the zero-shot rows use different NLI checkpoints and a 500-tweet subset (see caveats).
 - **Accuracy falls 2.4 points (DistilBERT) and 3.1 points (DistilRoBERTa)** when 10% of words longer than three characters get two adjacent letters swapped.
 - **A structured prompt with label definitions helped both LLMs**, most visibly on macro F1 for GPT-4o-mini (0.697 to 0.814). Its accuracy moved from 0.83 to 0.86.
 - **Optimism is the hard class.** It has only 82 test tweets, and its F1 is 0.62 (DistilBERT) and 0.61 (DistilRoBERTa), against 0.76 to 0.86 for the other classes.
-- **Tokenizers behave differently on noisy text.** The error analysis shows WordPiece mapping an emoji to `[UNK]` while byte-level BPE keeps it.
+- **Tokenizers behave differently on noisy text.** The error analysis shows WordPiece mapping an emoji to `[UNK]` while byte-level BPE keeps it as byte fragments, so some signal survives.
 
 Fine-tuning settings: 20 epochs maximum, batch size 16, AdamW, learning rate 2e-5, weight decay 0.01, 10% warmup, early stopping with patience 3, best checkpoint chosen by validation macro F1.
 
