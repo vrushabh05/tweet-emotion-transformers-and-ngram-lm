@@ -1,0 +1,11 @@
+stage,model,n_eval,accuracy,macro_f1,ece,seconds_per_100
+zero-shot,DistilBERT (typeform/distilbert-base-uncased-mnli),500,0.524,0.4922,0.1076,2.15
+zero-shot,DistilRoBERTa (cross-encoder NLI),500,0.586,0.5574,0.0632,2.25
+fine-tuned,DistilBERT,1011,0.8140,0.7722,,
+fine-tuned,DistilRoBERTa,1011,0.8051,0.7658,,
+fine-tuned + typo noise,DistilBERT,1011,0.7903,0.7456,,
+fine-tuned + typo noise,DistilRoBERTa,1011,0.7745,0.7307,,
+prompted LLM (minimal prompt),GPT-4o-mini,100,0.83,0.6973,,53.59
+prompted LLM (structured prompt),GPT-4o-mini,100,0.86,0.8138,,54.87
+prompted LLM (minimal prompt),Zephyr-7B-beta,100,0.73,0.6912,,36.89
+prompted LLM (structured prompt),Zephyr-7B-beta,100,0.77,0.7011,,28.50

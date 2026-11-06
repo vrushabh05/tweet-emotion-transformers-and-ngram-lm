@@ -1,0 +1,3 @@
+model,train_ppl,val_ppl,test_ppl,notes
+"Count-based trigram (add-k, k=0.5)",1833.96,5303.88,5045.66,"vocab 6183; 33732 distinct trigrams in train"
+"Neural trigram MLP (embed 64, hidden 128, dropout 0.5)",,,402.49,"1209831 parameters; early stop at epoch 50; best epoch 31; best val loss 6.3130"
